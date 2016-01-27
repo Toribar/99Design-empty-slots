@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from .models import Contests
+from .models import Contest
 
-class ContestsAdmin(admin.ModelAdmin):
-    list_display = ['name', 'start_date', 'end_date']
+class ContestAdmin(admin.ModelAdmin):
+    list_display = ['name', 'start_date']
 
 
-admin.site.register(Contests, ContestsAdmin)
+admin.site.register(Contest, ContestAdmin)
 

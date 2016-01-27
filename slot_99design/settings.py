@@ -56,7 +56,7 @@ ROOT_URLCONF = 'slot_99design.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['slot_99design/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

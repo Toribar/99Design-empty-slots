@@ -1,6 +1,13 @@
 from django.db import models
+from django.utils import timezone
 
-class Contests(models.Model):
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
-    name = models.CharField(max_length=50)
+
+
+
+class Contest(models.Model):
+    start_date = models.DateTimeField(default=timezone.now())
+    name = models.CharField(max_length=50, unique=True)
+
+
+
+

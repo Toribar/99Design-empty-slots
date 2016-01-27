@@ -1,9 +1,18 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, render_to_response, RequestContext
+from django.http import Http404
+from contests.models import Contest
+from .forms import ContestForm
 
 
 def index(request):
-    return HttpResponse('<p>Home view madafaka</p>')
+    form = ContestForm(request.POST or None)
+    cunts = Contest.objects.all()
 
-def contest_detail(request, id):
-    return HttpResponse('<p>In contest_detail view with name {0}</p>'.format(id))
+    if form.is_valid():
+        save_it = form.save(commit=False)
+        save_it.save()
+
+    return render(request, 'contests/index.html', {
+        'form': form,
+        'cunts': cunts,
+    })

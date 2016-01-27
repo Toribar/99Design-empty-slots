@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+
+{% block content %}
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">Contests</div>
+
+        <div class="panel-body">
+            <ol>
+                {% for c in cunts %}
+                    <li>{{ c.name|capfirst }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <form class="" action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+    </form>
+
+</div>
+{% endblock %}
