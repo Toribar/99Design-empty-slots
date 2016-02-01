@@ -1,23 +1,28 @@
 {% extends "master.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="col-md-6">
     <div class="panel panel-default">
-        <div class="panel-heading text-center">Contests</div>
+        <div class="panel-heading text-center">
+            <h3>Contests</h3>
+        </div>
 
         <div class="panel-body">
             <ol>
                 {% for c in cunts %}
-                    <li>{{ c.name|capfirst }}</li>
+                    <li class="list-group-item">{{ c.count }} {{ c.name|capfirst }}</li>
                 {% endfor %}
             </ol>
         </div>
+
+        <form class="form-block" action="" method="POST">{% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" value="Add" class="btn btn-primary btn-block btn-lg">
+        </form>
     </div>
 
-    <form class="" action="" method="post">
-        {% csrf_token %}
-        {{ form }}
-    </form>
+
 
 </div>
 {% endblock %}
