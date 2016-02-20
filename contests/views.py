@@ -5,14 +5,21 @@ from .forms import ContestForm
 
 
 def index(request):
-    form = ContestForm(request.POST or None)
-    cunts = Contest.objects.all()
+    cunts_num = Contest.objects.count()
+    available = 20 - cunts_num
 
-    if form.is_valid():
-        save_it = form.save(commit=False)
-        save_it.save()
+    cunts = Contest.objects.all()
+    form = ContestForm()
+    if request.method == 'POST':
+        form = ContestForm(request.POST or None)
+        if form.is_valid():
+            save_it = form.save(commit=False)
+            save_it.save()
+        else:
+            form = ContestForm(request.POST or None)
 
     return render(request, 'contests/index.html', {
+        'available': available,
         'form': form,
         'cunts': cunts,
     })

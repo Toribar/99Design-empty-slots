@@ -16,13 +16,15 @@
             </ol>
         </div>
 
-        <form class="form-block" action="" method="POST">{% csrf_token %}
+        <form class="form-block" action="/" method="POST">{% csrf_token %}
             {{ form|crispy }}
             <input type="submit" value="Add" class="btn btn-primary btn-block btn-lg">
         </form>
     </div>
-
-
-
+</div>
+<div class="col-md-6">
+    <div class="page-header">
+        <h2>Number of available slots is: {{ available }}</h2>
+    </div>
 </div>
 {% endblock %}
