@@ -11,7 +11,10 @@
         <div class="panel-body">
             <ol>
                 {% for c in cunts %}
-                    <li class="list-group-item">{{ c.count }} {{ c.name|capfirst }}</li>
+                    <li class="list-group-item">
+                        {{ c.name|capfirst }}
+                        {{ c.start_date }}
+                    </li>
                 {% endfor %}
             </ol>
         </div>

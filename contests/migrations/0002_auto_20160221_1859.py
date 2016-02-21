@@ -11,9 +11,9 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='contests',
-            name='slug',
-            field=models.SlugField(default=''),
+        migrations.AlterField(
+            model_name='contest',
+            name='start_date',
+            field=models.DateTimeField(null=True, verbose_name='Start Date', blank=True),
         ),
     ]

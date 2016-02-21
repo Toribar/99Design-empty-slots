@@ -10,6 +10,7 @@ def index(request):
 
     cunts = Contest.objects.all()
     form = ContestForm()
+
     if request.method == 'POST':
         form = ContestForm(request.POST or None)
         if form.is_valid():
